@@ -18,7 +18,9 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v6 # uses the checkout action to checkout the code
 
+      - name: Build Docker image
+        run: docker build -t ml-example .
 
-      - name: run script
-        run: 
-          python ml_example.py
+
+      - name: Run code
+        run: docker run --rm ml-example
