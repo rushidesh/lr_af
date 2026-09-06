@@ -21,11 +21,13 @@ WORKDIR /app
 
 
 # Copy your script(s) into container
+COPY requirements.txt /app/
 COPY ml_example.py /app/
+COPY data.csv /app/
 
 
 # Install Python dependencies (adjust as needed)
-RUN pip3 install --no-cache-dir pandas scikit-learn matplotlib
+RUN pip3 install --no-cache-dir -r requirements.txt
 
 
 # Command to run the script
